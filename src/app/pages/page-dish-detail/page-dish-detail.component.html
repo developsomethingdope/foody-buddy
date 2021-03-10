@@ -1,0 +1,33 @@
+<div class="page-top">
+  <app-navlinks [linkType]="'allLinks'"></app-navlinks>
+  <div class="title">dish detail</div>
+</div>
+<div class="page-bottom section-detail">
+  <app-loading *ngIf="isLoadingLocal"></app-loading>
+  <div *ngIf="!isLoadingLocal" class="section-detail-content">
+    <app-dish-item [dishInput]="dishItem"></app-dish-item>
+    <div class="content-info">
+      <div class="info-area">
+        <div class="info-label label-category">Category:</div>
+        <div class="info-text text-category">{{ dishItem.Category }}</div>
+      </div>
+      <div class="info-area">
+        <div class="info-label label-origin">Origin:</div>
+        <div class="info-text text-origin">{{ dishItem.Area }}</div>
+      </div>
+      <div class="info-area">
+        <div class="info-label label-ingredients">Ingredients:</div>
+        <div class="info-text text-ingredients">{{ dishItem.Ingredients }}</div>
+      </div>
+      <div class="info-area">
+        <div class="info-label label-ingredients">Instructions:</div>
+        <div class="info-text text-ingredients">
+          <div *ngFor="let currentInstruction of dishItem.Instructions">
+            <p>{{ currentInstruction }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-back2top></app-back2top>
+</div>

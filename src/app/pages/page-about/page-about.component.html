@@ -1,0 +1,32 @@
+<div class="page-top">
+  <app-navlinks [linkType]="'noAboutLink'"></app-navlinks>
+  <div class="title">about</div>
+</div>
+<div class="page-bottom section-about" [ngClass]="{'section-about-favorite': isFavoriteAboutLocal}">
+  <div class="section-subtitle">foody-buddy v1.0</div>
+  <div class="about-favorite">
+    <div class="favorite-toggle">
+      <div *ngIf="!isFavoriteAboutLocal" class="toggle-label">Not Favorite</div>
+      <div *ngIf="isFavoriteAboutLocal" class="toggle-label">Favorite</div>
+      <label class="toggle-switch">
+        <input *ngIf="!isFavoriteAboutLocal" type="checkbox" (change)="toggleChangeHandler()" />
+        <input *ngIf="isFavoriteAboutLocal" type="checkbox" checked (change)="toggleChangeHandler()" />
+        <span class="switch-slider switch-round"></span>
+      </label>
+    </div>
+  </div>
+  <p>Features:</p>
+  <ul>
+    <li>Show random dishes</li>
+    <li>Set dish as favorite</li>
+    <li>Show favorite dishes</li>
+    <li>More info for each dish</li>
+    <li>Data taken from <a href="https://www.themealdb.com/api.php">API</a></li>
+  </ul>
+  <p>
+    Source: <a href="https://github.com/developsomethingdope/foody-buddy">GitHub</a><br />
+    See more: <a href="https://develop-something-dope.netlify.app">My Porfolio website</a><br />
+    About me: <a href="https://www.linkedin.com/in/edward-kwong-03a783184">Linkedin</a><br /><br />
+    Copyright &copy; {{ currentYear }}
+  </p>
+</div>

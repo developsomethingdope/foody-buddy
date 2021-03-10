@@ -1,0 +1,27 @@
+<div class="section-item" [ngClass]="{'section-item-favorite': isFavoriteLocal}">
+  <div class="item-image">
+    <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish', dishInput.Id]">
+      <!-- <img src="assets/placeholder.png" alt="placeholder"> -->
+      <img [src]="dishInput.Image" [alt]="dishInput.Name">
+    </a>
+    <div *ngIf="!isLinkToDetailLocal">
+      <!-- <img src="assets/placeholder.png" alt="placeholder"> -->
+      <img [src]="dishInput.Image" [alt]="dishInput.Name">
+    </div>
+  </div>
+  <div class="item-title">
+    <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish', dishInput.Id]">{{ dishInput.Name }}</a>
+    <span *ngIf="!isLinkToDetailLocal">{{ dishInput.Name }}</span>
+  </div>
+  <div class="item-favorite">
+    <div class="favorite-toggle">
+      <div *ngIf="!isFavoriteLocal" class="toggle-label">Not Favorite</div>
+      <div *ngIf="isFavoriteLocal" class="toggle-label">Favorite</div>
+      <label class="toggle-switch">
+        <input *ngIf="!isFavoriteLocal" type="checkbox" (change)="toggleChangeHandler()" />
+        <input *ngIf="isFavoriteLocal" type="checkbox" checked (change)="toggleChangeHandler()" />
+        <span class="switch-slider switch-round"></span>
+      </label>
+    </div>
+  </div>
+</div>

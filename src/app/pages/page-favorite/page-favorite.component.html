@@ -1,0 +1,12 @@
+<div class="page-top">
+  <app-navlinks [linkType]="'homeLink'"></app-navlinks>
+  <div class="title">Favorite dishes</div>
+</div>
+<div *ngIf="favoriteIdArrayLocal.length < 1" class="page-bottom section-favorite section-favorite-none">
+  <div class="section-subtitle">none found</div>
+  <p>Just click on Home and pick some dishes.</p>
+</div>
+<div *ngIf="favoriteIdArrayLocal.length > 0" class="page-bottom section-favorite">
+  <app-dish-list [dishesArray]="favoriteDishesArrayLocal"></app-dish-list>
+  <app-back2top></app-back2top>
+</div>

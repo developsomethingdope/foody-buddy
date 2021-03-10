@@ -1,0 +1,8 @@
+<app-loading *ngIf="dishesArray.length < 1; else elseBlock"></app-loading>
+<ng-template #elseBlock>
+  <div class="section-list">
+    <div *ngFor="let currentDish of dishesArray">
+      <app-dish-item [dishInput]="currentDish"></app-dish-item>
+    </div>
+  </div>
+</ng-template>
