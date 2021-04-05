@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
 import { Dish } from "./dish";
 
@@ -8,8 +7,6 @@ import { Dish } from "./dish";
 })
 export class ContextService 
 {
-  private _isLoadingSource = new Subject<boolean>();
-  isLoading$ = this._isLoadingSource.asObservable();
   randomDishesArray: Dish[] = [];
   isFavoriteAbout: boolean = false;
   isLinkToDetail: boolean = false;
@@ -23,11 +20,6 @@ export class ContextService
 
   //// global variables
   
-  setIsLoading(isLoad: boolean)
-  {
-    this._isLoadingSource.next(isLoad);
-  }
-
   getRandomDishesArray()
   {
     return this.randomDishesArray;

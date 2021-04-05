@@ -21,7 +21,7 @@ export class PageDishDetailComponent implements OnInit
     this._activatedRoute.paramMap.subscribe(
       paramMap => 
       {
-        //console.log(paramMap['params']);
+        //console.log('detail: ', paramMap['params']);
         this.idLocal = paramMap['params'].id;
       }
     );
@@ -94,7 +94,6 @@ export class PageDishDetailComponent implements OnInit
     {
       instructionsArray = dataDish.strInstructions.split('\n\r');
     }
-    //else if (dataDish.strInstructions.includes('\r\n'))
     else
     {
       instructionsArray = dataDish.strInstructions.split('\r\n');

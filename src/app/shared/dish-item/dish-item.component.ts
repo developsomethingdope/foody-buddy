@@ -11,7 +11,6 @@ export class DishItemComponent implements OnInit
 {
   isFavoriteLocal: boolean;
   isLinkToDetailLocal: boolean;
-  //favoriteIdArrayLocal: string[];
   @Input() dishInput: Dish;
   
   constructor(private _contextService: ContextService) { }
@@ -19,7 +18,6 @@ export class DishItemComponent implements OnInit
   {
     this.isFavoriteLocal = this.dishInput.IsFavorite;
     this.isLinkToDetailLocal = this._contextService.getIsLinkToDetail();
-    //this.favoriteIdArrayLocal = this._contextService.getLocalStorageIdsArray();
   }
 
   //// event handler

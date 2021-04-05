@@ -1,10 +1,10 @@
 <div class="page-top">
-  <app-navlinks [linkType]="'favoriteLink'"></app-navlinks>
+  <app-navlinks [linkType]="'NO_HOME_LINK'"></app-navlinks>
   <div class="title">random dishes</div>
 </div>
 <div class="page-bottom section-home">
-  <div *ngIf="!isLoadingLocal" class="button button-home" (click)="showClickHandler()">Show me new random dishes</div>
-  <div *ngIf="isLoadingLocal" class="button button-home-disabled">Show me new random dishes</div>
+  <div *ngIf="randomDishesArrayLocal.length > 0" class="button button-home" (click)="showClickHandler()">Show me new random dishes</div>
+  <div *ngIf="randomDishesArrayLocal.length < 1" class="button button-home-disabled">Show me new random dishes</div>
   <app-dish-list [dishesArray]="randomDishesArrayLocal"></app-dish-list>
   <app-back2top></app-back2top>
 </div>

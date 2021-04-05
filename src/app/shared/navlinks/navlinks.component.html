@@ -1,12 +1,12 @@
-<div class="links">
+<div class="nav-links">
   <div [ngSwitch]="linkType">
-    <div *ngSwitchCase="'homeLink'">
-      <a routerLink="/">Home</a> | <a routerLink="/about">About</a>
-    </div>
-    <div *ngSwitchCase="'favoriteLink'">
+    <div *ngSwitchCase="'NO_HOME_LINK'">
       <a routerLink="/favorite">Favorite</a> | <a routerLink="/about">About</a>
     </div>
-    <div *ngSwitchCase="'noAboutLink'">
+    <div *ngSwitchCase="'NO_FAVORITE_LINK'">
+      <a routerLink="/">Home</a> | <a routerLink="/about">About</a>
+    </div>
+    <div *ngSwitchCase="'NO_ABOUT_LINK'">
       <a routerLink="/">Home</a> | <a routerLink="/favorite">Favorite</a>
     </div>
     <div *ngSwitchDefault>

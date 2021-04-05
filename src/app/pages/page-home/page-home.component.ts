@@ -29,29 +29,31 @@ export class PageHomeComponent implements OnInit
     this._contextService.setIsLinkToDetail(true);
   }
 
-  getRandomDishesArray()
+  async getRandomDishesArray()
   {
-    this.isLoadingLocal = true;
-    this._contextService.setIsLoading(this.isLoadingLocal);
-    for (let i = 0; i < this.numOfRandomDishes; i++)
+    try
     {
-      this._contextService.getDishFromApi(this.randomUrl)
-      .subscribe(
-        response => 
+      var idsObject = {};
+      for (let i = 0; i < this.numOfRandomDishes; i++)
+      {
+        let idLocal = '';
+        var dataJson = null;
+        do
         {
-          //console.log('home: ', response['meals'][0]);
-          this.randomDish = this._contextService.parseDataPreview(response['meals'][0]);
-          this.randomDishesArrayLocal.push(this.randomDish);
-          if (this.randomDishesArrayLocal.length === this.numOfRandomDishes)
-          {
-            this._contextService.setRandomDishesArray(this.randomDishesArrayLocal);
-          }
-        },
-        error => console.log('Home page Error: ', error)
-      );
+          const response = await fetch(this.randomUrl);
+          dataJson = await response.json();
+          idLocal = dataJson['meals'][0]['idMeal'];
+        } while (idsObject[idLocal]);
+        idsObject[idLocal] = true;
+        this.randomDish = this._contextService.parseDataPreview(dataJson['meals'][0]);
+        this.randomDishesArrayLocal.push(this.randomDish);
+      }
+      this._contextService.setRandomDishesArray(this.randomDishesArrayLocal);
     }
-    this.isLoadingLocal = false;
-    this._contextService.setIsLoading(this.isLoadingLocal);
+    catch(error)
+    {
+      console.log('home page: ', error);
+    }
   }
 
   //// event handler

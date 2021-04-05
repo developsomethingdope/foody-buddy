@@ -36,17 +36,6 @@ body
   font-size: 18pt;
 }
 
-.page-top .links
-{
-  padding: 15px 0;
-}
-
-.page-top .links a
-{
-  text-decoration: none;
-  color: var(--main-orange);
-}
-
 .section-subtitle
 {
   text-transform: uppercase;
@@ -189,7 +178,20 @@ body
   font-size: 11pt;
 }
 
-/* component - cocktail list */
+/* component - nav links */
+
+.nav-links
+{
+  padding: 15px 0;
+}
+
+.nav-links a
+{
+  text-decoration: none;
+  color: var(--main-orange);
+}
+
+/* component - dish list */
 
 .section-list
 {
@@ -201,7 +203,7 @@ body
   margin: 0 auto;
 }
 
-/* component - cocktail item */
+/* component - dish item */
 
 .section-item
 {
@@ -249,7 +251,7 @@ body
   text-align: center;
 }
 
-/* component - cocktail item - back to top */
+/* component - back to top */
 
 .button-top
 {
@@ -260,7 +262,7 @@ body
   margin-top: 50px;
 }
 
-/* component - cocktail item - favorite toggle */
+/* component - favorite toggle */
 
 .toggle-label
 {

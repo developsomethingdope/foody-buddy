@@ -30,7 +30,6 @@ export class PageFavoriteComponent implements OnInit
 
   getFavoriteDishesArray()
   {
-    this._contextService.setIsLoading(true);
     for (const idItem of this.favoriteIdArrayLocal)
     {
       const url = this.partialUrl + idItem;
@@ -52,7 +51,6 @@ export class PageFavoriteComponent implements OnInit
         error => console.log('Favorite page Error: ', error)
       );
     }
-    this._contextService.setIsLoading(false);
   }
 
   matchIdArrayOrder(dishesArray)
