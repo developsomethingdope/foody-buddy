@@ -4,7 +4,11 @@
 </div>
 <div class="page-bottom section-detail">
   <app-loading *ngIf="isLoadingLocal"></app-loading>
-  <div *ngIf="!isLoadingLocal" class="section-detail-content">
+  <div *ngIf="!isLoadingLocal && !isValidDish" class="section-detail-invalid">
+    <div class="section-subtitle">invalid dish id</div>
+    <p>Make sure that dish id is correct in the url.</p>
+  </div>
+  <div *ngIf="!isLoadingLocal && isValidDish" class="section-detail-content">
     <app-dish-item [dishInput]="dishItem"></app-dish-item>
     <div class="content-info">
       <div class="info-area">

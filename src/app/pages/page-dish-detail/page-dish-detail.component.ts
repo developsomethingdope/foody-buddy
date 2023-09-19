@@ -12,32 +12,45 @@ export class PageDishDetailComponent implements OnInit
 {
   idLocal: string;
   isLoadingLocal: boolean = true;
+  isValidDish: boolean;
   partialUrl: string = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=';
   dishItem: Dish;
   
   constructor(private _activatedRoute: ActivatedRoute, private _contextService: ContextService) { }
   ngOnInit() 
   {
-    this._activatedRoute.paramMap.subscribe(
-      paramMap => 
+    this._activatedRoute.queryParamMap.subscribe(
+      queryParamMap => 
       {
-        //console.log('detail: ', paramMap['params']);
-        this.idLocal = paramMap['params'].id;
+        //console.log('detail: ', queryParamMap['params']);
+        this.idLocal = '0';
+        if (Object.keys(queryParamMap['params']).length > 0)
+        {
+          this.idLocal = queryParamMap['params'].dishId;
+        }
       }
     );
     this.getDishDetail(this.idLocal);
     this._contextService.setIsLinkToDetail(false);
   }
 
-  getDishDetail(dishId)
+  getDishDetail(queryDishId)
   {
-    const url = this.partialUrl + dishId;
+    const url = this.partialUrl + queryDishId;
     this._contextService.getDishFromApi(url)
     .subscribe(
       response =>
       {
         //console.log('detail: ', response['meals'][0]);
-        this.dishItem = this.parseData(response['meals'][0]);
+        this.isValidDish = true;
+        if (!response['meals'])
+        {
+          this.isValidDish = false;
+        }
+        else
+        {
+          this.dishItem = this.parseData(response['meals'][0]);
+        }
         this.isLoadingLocal = false;
       },
       error => console.log('Detail page Error: ', error)

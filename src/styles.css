@@ -131,6 +131,17 @@ body
 
 /* page - detail */
 
+.section-detail-invalid
+{
+  width: 88%;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: var(--dark-orange);
+  padding: 15px;
+  text-align: center;
+}
+
 .section-detail
 {
   padding-bottom: 50px;

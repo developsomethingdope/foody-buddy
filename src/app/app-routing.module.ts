@@ -12,7 +12,7 @@ const routes: Routes =
 [
   {path: 'about', component: PageAboutComponent},
   {path: 'favorite', component: PageFavoriteComponent},
-  {path: 'dish/:id', component: PageDishDetailComponent},
+  {path: 'dish', component: PageDishDetailComponent},
   {path: '', component: PageHomeComponent, pathMatch:'full'},
   {path: '**', component: PageErrorComponent}
 ];

@@ -1,6 +1,7 @@
 <div class="section-item" [ngClass]="{'section-item-favorite': isFavoriteLocal}">
   <div class="item-image">
-    <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish', dishInput.Id]">
+    <!-- <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish', dishInput.Id]"> -->
+    <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish']" [queryParams]="{dishId: dishInput.Id}">
       <!-- <img src="assets/placeholder.png" alt="placeholder"> -->
       <img [src]="dishInput.Image" [alt]="dishInput.Name">
     </a>
@@ -11,7 +12,8 @@
   </div>
   <div class="section-item-bottom">
     <div class="item-title">
-      <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish', dishInput.Id]">{{ dishInput.Name }}</a>
+      <!-- <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish', dishInput.Id]">{{ dishInput.Name }}</a> -->
+      <a *ngIf="isLinkToDetailLocal" [routerLink]="['/dish']" [queryParams]="{dishId: dishInput.Id}">{{ dishInput.Name }}</a>
       <span *ngIf="!isLinkToDetailLocal">{{ dishInput.Name }}</span>
     </div>
     <div class="item-favorite">
